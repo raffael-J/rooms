@@ -26,7 +26,7 @@ public class NewRoomActivity extends AppCompatActivity {
         mType_editText = (EditText) findViewById(R.id.type_editText);
         mAmount_editText = (EditText) findViewById(R.id.amount_editText);
 
-        mAdd_btm = (Button) findViewById(R.id.add_new_room_button);
+        mAdd_btm = (Button) findViewById(R.id.update_button);
         mBack_btm = (Button) findViewById(R.id.back_button_addroom);
 
         mAdd_btm.setOnClickListener(new View.OnClickListener() {

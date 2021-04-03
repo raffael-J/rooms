@@ -2,7 +2,9 @@ package com.example.hotelmanagement;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -38,6 +40,21 @@ public class Recycler_View_Config {
             mName = (TextView) itemView.findViewById(R.id.name_textView);
             mType = (TextView) itemView.findViewById(R.id.type_textView);
             mAmount = (TextView) itemView.findViewById(R.id.amount_textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, RoomDetailsActivity.class);
+                    intent.putExtra("key",key);
+                    intent.putExtra("type",mType.getText().toString());
+                    intent.putExtra("name",mName.getText().toString());
+                    intent.putExtra("amount",mAmount.getText().toString());
+
+                    mContext.startActivity(intent);
+                }
+
+
+            });
 
         }
 

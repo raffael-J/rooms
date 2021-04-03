@@ -60,4 +60,22 @@ public class FirebaseDatabaseHelper {
         });
     }
 
+    public void updateRoom(String key, Room room, final DataStatus dataStatus) {
+        mReferenceRooms.child(key).setValue(room).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsUpdated();
+            }
+        });
+    }
+
+    public void deleteRoom(String key, final DataStatus dataStatus) {
+        mReferenceRooms.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsDeleted();
+            }
+        });
+    }
+
 }
