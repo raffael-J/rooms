@@ -37,9 +37,9 @@ public class Recycler_View_Config {
             super(LayoutInflater.from(mContext).
                     inflate(R.layout.room_list_item, parent, false));
 
-            mName = (TextView) itemView.findViewById(R.id.name_textView);
-            mType = (TextView) itemView.findViewById(R.id.type_textView);
-            mAmount = (TextView) itemView.findViewById(R.id.amount_textView);
+            mName = (TextView) itemView.findViewById(R.id.firstname_textView);
+            mType = (TextView) itemView.findViewById(R.id.lastname_textView);
+            mAmount = (TextView) itemView.findViewById(R.id.roomid_textView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

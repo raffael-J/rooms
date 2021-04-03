@@ -20,11 +20,13 @@ public class RoomDetailsActivity extends AppCompatActivity {
     private Button mUpdate_btm;
     private Button mBack_btm;
     private Button mDelete_btm;
+    private Button mReserve_btm;
 
     private String key;
     private String type;
     private String name;
     private String amount;
+    private boolean reserved;
 
 
     @Override
@@ -47,6 +49,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
         mUpdate_btm = (Button) findViewById(R.id.update_button);
         mBack_btm = (Button) findViewById(R.id.back_button_addroom);
         mDelete_btm = (Button) findViewById(R.id.delete_button);
+        mReserve_btm = (Button) findViewById(R.id.reserve_button);
 
         mUpdate_btm.setOnClickListener(new View.OnClickListener() {
             @Override
