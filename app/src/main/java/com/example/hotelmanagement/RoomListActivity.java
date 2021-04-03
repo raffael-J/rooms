@@ -3,7 +3,10 @@ package com.example.hotelmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toolbar;
 
 import java.util.List;
@@ -45,6 +48,20 @@ public class RoomListActivity extends AppCompatActivity {
 
 
     }
+
+    public boolean onCreateOptionMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.roomlist_activity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case R.id.new_room:
+            startActivity(new Intent(this, NewRoomActivity.class));
+            return true;
+    }
+    return super.onOptionsItemSelected(item);
+}
 
 
 }

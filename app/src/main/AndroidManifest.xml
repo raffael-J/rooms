@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hotelmanagement">
+        <activity android:name=".NewRoomActivity"></activity>
         <activity android:name=".RoomListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

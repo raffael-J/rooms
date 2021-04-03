@@ -21,9 +21,7 @@ public class Recycler_View_Config {
             mContext = context;
             mRoomsAdapter = new RoomAdapter(rooms, keys);
             recyclerView.setAdapter(mRoomsAdapter);
-            for (Room room : rooms) {
-                System.out.println(room.getName());
-            }
+
         }
 
     class RoomItemView extends RecyclerView.ViewHolder {
