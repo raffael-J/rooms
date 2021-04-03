@@ -51,7 +51,8 @@ public class RoomListActivity extends AppCompatActivity {
 
     }
 
-    public boolean onCreateOptionMenu(Menu menu) {
+
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.roomlist_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }

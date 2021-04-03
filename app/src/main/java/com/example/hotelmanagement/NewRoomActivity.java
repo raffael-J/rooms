@@ -18,10 +18,6 @@ public class NewRoomActivity extends AppCompatActivity {
     private Button mAdd_btm;
     private Button mBack_btm;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
