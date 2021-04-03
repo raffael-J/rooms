@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toolbar;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class RoomListActivity extends AppCompatActivity {
         new FirebaseDatabaseHelper().readRooms(new FirebaseDatabaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<Room> rooms, List<String> keys) {
+                findViewById(R.id.progressBar).setVisibility(View.GONE);
                 new Recycler_View_Config().setConfig(mRecyclerView, RoomListActivity.this, rooms, keys);
             }
 
