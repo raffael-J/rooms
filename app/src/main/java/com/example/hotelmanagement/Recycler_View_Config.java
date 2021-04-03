@@ -35,8 +35,8 @@ public class Recycler_View_Config {
             super(LayoutInflater.from(mContext).
                     inflate(R.layout.room_list_item, parent, false));
 
-            mType = (TextView) itemView.findViewById(R.id.type_textview);
-            mName = (TextView) itemView.findViewById(R.id.number_textView);
+            mName = (TextView) itemView.findViewById(R.id.name_textView);
+            mType = (TextView) itemView.findViewById(R.id.type_textView);
             mAmount = (TextView) itemView.findViewById(R.id.amount_textView);
 
         }
