@@ -39,7 +39,7 @@ public class Recycler_View_Config {
 
             mName = (TextView) itemView.findViewById(R.id.firstname_textView);
             mType = (TextView) itemView.findViewById(R.id.lastname_textView);
-            mAmount = (TextView) itemView.findViewById(R.id.roomid_textView);
+            mAmount = (TextView) itemView.findViewById(R.id.roomname_textView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -2,6 +2,7 @@ package com.example.hotelmanagement;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,6 +46,25 @@ public class FirebaseDatabaseHelperReservation {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+    }
+
+    public void addReservation(Reservation reservation, final DataStatus dataStatus) {
+        String key = mReferenceReservation.push().getKey();
+        mReferenceReservation.child(key).setValue(reservation).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                    dataStatus.DataIsInserted();
+            }
+        });
+    }
+
+    public void deleteReservation(String key, final FirebaseDatabaseHelper.DataStatus dataStatus) {
+        mReferenceReservation.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsDeleted();
             }
         });
     }

@@ -5,15 +5,17 @@ public class Room {
     private String type;
     private String name;
     private String amount;
-
+    private boolean resereved;
 
     public Room() {
     }
 
-    public Room(String type, String name, String amount) {
+    public Room(String type, String name, String amount, boolean reserved) {
         this.type = type;
         this.name = name;
         this.amount = amount;
+        this.resereved = reserved;
+
     }
 
     public String getType() {
@@ -38,6 +40,14 @@ public class Room {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public boolean isResereved() {
+        return resereved;
+    }
+
+    public void setResereved(String resereved) {
+        this.resereved = Boolean.valueOf(resereved);
     }
 }
 

@@ -3,17 +3,22 @@ package com.example.hotelmanagement;
 public class Reservation {
     private String firstname;
     private String lastname;
-    private String roomid;
+    private String roomname;
+    private String checkIn;
+    private String checkOut;
+
 
 
     public Reservation() {
 
     }
 
-    public Reservation(String firstname, String lastname, String roomid) {
+    public Reservation(String firstname, String lastname, String roomname, String checkIn, String checkOut) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.roomid = roomid;
+        this.roomname = roomname;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
     }
 
     public String getFirstname() {
@@ -32,11 +37,27 @@ public class Reservation {
         this.lastname = lastname;
     }
 
-    public String getRoomid() {
-        return roomid;
+    public String getRoomname() {
+        return roomname;
     }
 
-    public void setRoomid(String roomid) {
-        this.roomid = roomid;
+    public void setRoomname(String roomname) {
+        this.roomname = roomname;
+    }
+
+    public String getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public String getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(String checkOut) {
+        this.checkOut = checkOut;
     }
 }

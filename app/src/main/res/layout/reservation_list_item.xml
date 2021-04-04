@@ -29,10 +29,11 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstname_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/firstname_textView"
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
-        android:id="@+id/roomid_textView"
+        android:id="@+id/roomname_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -44,5 +45,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.068" />
+
+    <TextView
+        android:id="@+id/checkin_textView"
+        android:layout_width="91dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastname_textView" />
+
+    <TextView
+        android:id="@+id/checkout_textView"
+        android:layout_width="91dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="88dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomname_textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

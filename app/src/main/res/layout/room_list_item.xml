@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstname_textView" />
 
     <TextView
-        android:id="@+id/roomid_textView"
+        android:id="@+id/roomname_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

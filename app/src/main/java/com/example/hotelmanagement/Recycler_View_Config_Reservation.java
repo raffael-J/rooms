@@ -27,7 +27,9 @@ public class Recycler_View_Config_Reservation {
     class ReservationItemView extends RecyclerView.ViewHolder {
         private TextView mFirstname;
         private TextView mLastname;
-        private TextView mRoomid;
+        private TextView mRoomname;
+        private TextView mCheckin;
+        private TextView mCheckout;
 
         private String key;
 
@@ -36,16 +38,33 @@ public class Recycler_View_Config_Reservation {
 
             mFirstname = (TextView) itemView.findViewById(R.id.firstname_textView);
             mLastname = (TextView) itemView.findViewById(R.id.lastname_textView);
-            mRoomid = (TextView) itemView.findViewById(R.id.roomid_textView);
+            mRoomname = (TextView) itemView.findViewById(R.id.roomname_textView);
+            mCheckin = (TextView) itemView.findViewById(R.id.checkin_textView);
+            mCheckout = (TextView) itemView.findViewById(R.id.checkout_textView);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, ReservationDetailsActivity.class);
+                    intent.putExtra("key",key);
+                    intent.putExtra("firstname",mFirstname.getText().toString());
+                    intent.putExtra("lastname", mLastname.getText().toString());
+                    intent.putExtra("roomname", mRoomname.getText().toString());
+                    intent.putExtra("checkIn", mCheckin.getText().toString());
+                    intent.putExtra("checkOut", mCheckout.getText().toString());
 
+                    mContext.startActivity(intent);
+                }
+            });
 
             }
 
             public void bind(Reservation reservation, String key) {
                 mFirstname.setText(reservation.getFirstname());
                 mLastname.setText(reservation.getLastname());
-                mRoomid.setText(reservation.getRoomid());
+                mRoomname.setText(reservation.getRoomname());
+                mCheckin.setText(reservation.getCheckIn());
+                mCheckout.setText(reservation.getCheckOut());
                 this.key = key;
 
         }
