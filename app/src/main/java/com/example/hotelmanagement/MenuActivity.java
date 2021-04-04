@@ -13,7 +13,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button button2;
 
 
-
+    //Design
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
