@@ -54,7 +54,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
         mUpdate_btm = (Button) findViewById(R.id.update_button);
         mBack_btm = (Button) findViewById(R.id.back_button_addroom);
         mDelete_btm = (Button) findViewById(R.id.delete_button);
-        mReserve_btm = (Button) findViewById(R.id.reserve_button);
+
 
         mUpdate_btm.setOnClickListener(new View.OnClickListener() {
             @Override
