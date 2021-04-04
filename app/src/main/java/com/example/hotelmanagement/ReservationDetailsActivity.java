@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 public class ReservationDetailsActivity extends AppCompatActivity {
 
@@ -65,7 +68,27 @@ public class ReservationDetailsActivity extends AppCompatActivity {
         mDelete_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseDatabaseHelperReservation().
+                new FirebaseDatabaseHelperReservation().deleteReservation(key, new FirebaseDatabaseHelper.DataStatus() {
+                    @Override
+                    public void DataIsLoaded(List<Room> rooms, List<String> keys) {
+
+                    }
+
+                    @Override
+                    public void DataIsInserted() {
+
+                    }
+
+                    @Override
+                    public void DataIsUpdated() {
+
+                    }
+
+                    @Override
+                    public void DataIsDeleted() {
+                        Toast.makeText(ReservationDetailsActivity.this, "Reservation has been deleted succesfully", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
