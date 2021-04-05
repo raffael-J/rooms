@@ -27,5 +27,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView_aboutus"
+        android:layout_width="297dp"
+        android:layout_height="488dp"
+        android:text="Raffael and Robert are two students who like to travel during the holidays and who doesn't know the long check-in at the hotels, especially if it's a spontaneous stay. That's why we have implemented a room reservation app where reservations can be made quickly."
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkmode" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
