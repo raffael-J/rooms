@@ -1,6 +1,7 @@
 package com.example.hotelmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,11 @@ public class NewRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_room);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mName_editText = (EditText) findViewById(R.id.name_editText);
         mType_editText = (EditText) findViewById(R.id.type_editText);
         mAmount_editText = (EditText) findViewById(R.id.amount_editText);

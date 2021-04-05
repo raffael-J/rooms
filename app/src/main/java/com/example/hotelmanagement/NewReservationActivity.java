@@ -1,6 +1,7 @@
 package com.example.hotelmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ public class NewReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_reservation);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mFirstname_editText = (EditText) findViewById(R.id.firstname_editText);
         mLastname_editText = (EditText) findViewById(R.id.lastname_editText);
         mRoomname_editText = (EditText) findViewById(R.id.roomname_editText);
