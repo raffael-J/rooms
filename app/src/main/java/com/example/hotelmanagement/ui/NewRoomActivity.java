@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.database.entity.Room;
+import com.example.hotelmanagement.database.repository.RoomRepository;
 
 import java.util.List;
 
@@ -42,7 +46,7 @@ public class NewRoomActivity extends AppCompatActivity {
                 room.setName(mName_editText.getText().toString());
                 room.setType(mType_editText.getText().toString());
                 room.setAmount(mAmount_editText.getText().toString());
-                new FirebaseDatabaseHelper().addRoom(room, new FirebaseDatabaseHelper.DataStatus() {
+                new RoomRepository().addRoom(room, new RoomRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Room> rooms, List<String> keys) {
 

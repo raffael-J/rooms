@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.database.entity.Room;
+import com.example.hotelmanagement.database.repository.RoomRepository;
 
 import java.util.List;
 
@@ -64,7 +67,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 room.setName(mName_editText.getText().toString());
                 room.setAmount(mAmount_editText.getText().toString());
 
-                new FirebaseDatabaseHelper().updateRoom(key, room, new FirebaseDatabaseHelper.DataStatus() {
+                new RoomRepository().updateRoom(key, room, new RoomRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Room> rooms, List<String> keys) {
 
@@ -91,7 +94,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
         mDelete_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseDatabaseHelper().deleteRoom(key, new FirebaseDatabaseHelper.DataStatus() {
+                new RoomRepository().deleteRoom(key, new RoomRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Room> rooms, List<String> keys) {
 

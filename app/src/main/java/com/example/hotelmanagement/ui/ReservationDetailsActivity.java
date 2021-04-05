@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.internal.SignInButtonImpl;
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.database.entity.Reservation;
+import com.example.hotelmanagement.database.repository.ReservationRepository;
 
 import java.util.Calendar;
 import java.util.List;
@@ -131,7 +132,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
                 reservation.setCheckIn(mCheckin_edittext.getText().toString());
                 reservation.setCheckOut(mCheckout_edittext.getText().toString());
 
-                new FirebaseDatabaseHelperReservation().updateReservation(key, reservation, new FirebaseDatabaseHelperReservation.DataStatus() {
+                new ReservationRepository().updateReservation(key, reservation, new ReservationRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Reservation> reservations, List<String> keys) {
 
@@ -158,7 +159,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
         mDelete_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseDatabaseHelperReservation().deleteReservation(key, new FirebaseDatabaseHelperReservation.DataStatus() {
+                new ReservationRepository().deleteReservation(key, new ReservationRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Reservation> reservations, List<String> keys) {
 

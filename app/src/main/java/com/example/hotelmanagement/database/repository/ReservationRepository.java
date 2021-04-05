@@ -1,7 +1,8 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.database.repository;
 
 import androidx.annotation.NonNull;
 
+import com.example.hotelmanagement.database.entity.Reservation;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,7 +13,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirebaseDatabaseHelperReservation {
+public class ReservationRepository {
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReferenceReservation;
     private List<Reservation> reservations = new ArrayList<>();
@@ -25,7 +26,7 @@ public class FirebaseDatabaseHelperReservation {
     }
 
 
-    public FirebaseDatabaseHelperReservation() {
+    public ReservationRepository() {
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceReservation = mDatabase.getReference("Reservation");
     }

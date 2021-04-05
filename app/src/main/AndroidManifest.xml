@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hotelmanagement">
-        <activity android:name=".SettingsActivity"
-            android:parentActivityName=".MenuActivity"/>
-        <activity android:name=".NewReservationActivity"
-            android:parentActivityName=".ReservationListActivity" />
-        <activity android:name=".ReservationDetailsActivity"
-            android:parentActivityName=".ReservationListActivity" />
-        <activity android:name=".MenuActivity">
+        <activity android:name=".ui.SettingsActivity"
+            android:parentActivityName=".ui.MenuActivity"/>
+        <activity android:name=".ui.NewReservationActivity"
+            android:parentActivityName=".ui.ReservationListActivity" />
+        <activity android:name=".ui.ReservationDetailsActivity"
+            android:parentActivityName=".ui.ReservationListActivity" />
+        <activity android:name=".ui.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,14 +23,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReservationListActivity"
-            android:parentActivityName=".MenuActivity" />
-        <activity android:name=".RoomDetailsActivity"
-            android:parentActivityName=".RoomListActivity"/>
-        <activity android:name=".NewRoomActivity"
-            android:parentActivityName=".RoomListActivity" />
-        <activity android:name=".RoomListActivity"
-            android:parentActivityName=".MenuActivity" />
+            android:name=".ui.ReservationListActivity"
+            android:parentActivityName=".ui.MenuActivity" />
+        <activity android:name=".ui.RoomDetailsActivity"
+            android:parentActivityName=".ui.RoomListActivity"/>
+        <activity android:name=".ui.NewRoomActivity"
+            android:parentActivityName=".ui.RoomListActivity" />
+        <activity android:name=".ui.RoomListActivity"
+            android:parentActivityName=".ui.MenuActivity" />
     </application>
 
 </manifest>

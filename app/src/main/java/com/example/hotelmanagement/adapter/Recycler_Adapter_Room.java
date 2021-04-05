@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.adapter;
 
 
 import android.content.Context;
@@ -12,9 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.ui.RoomDetailsActivity;
+import com.example.hotelmanagement.database.entity.Room;
+
 import java.util.List;
 
-public class Recycler_View_Config {
+public class Recycler_Adapter_Room {
     private Context mContext;
     private RoomAdapter mRoomsAdapter;
 

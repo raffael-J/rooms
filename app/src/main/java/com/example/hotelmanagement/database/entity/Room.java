@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.database.entity;
 
 
 public class Room {

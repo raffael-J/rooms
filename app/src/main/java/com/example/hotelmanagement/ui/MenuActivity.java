@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -10,6 +10,11 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.ui.ReservationListActivity;
+import com.example.hotelmanagement.ui.RoomListActivity;
+import com.example.hotelmanagement.ui.SettingsActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 

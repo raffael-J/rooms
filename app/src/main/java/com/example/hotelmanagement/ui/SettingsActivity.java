@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import com.example.hotelmanagement.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

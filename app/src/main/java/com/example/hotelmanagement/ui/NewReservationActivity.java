@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.database.entity.Reservation;
+import com.example.hotelmanagement.database.repository.ReservationRepository;
 
 import java.util.Calendar;
 import java.util.List;
@@ -89,7 +93,7 @@ public class NewReservationActivity extends AppCompatActivity {
                 reservation.setRoomname(mRoomname_editText.getText().toString());
                 reservation.setCheckIn(mCheckin_editText.getText().toString());
                 reservation.setCheckOut(mCheckout_editText.getText().toString());
-                new FirebaseDatabaseHelperReservation().addReservation(reservation, new FirebaseDatabaseHelperReservation.DataStatus() {
+                new ReservationRepository().addReservation(reservation, new ReservationRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Reservation> reservations, List<String> keys) {
 

@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.example.hotelmanagement.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.example.hotelmanagement.R;
+import com.example.hotelmanagement.adapter.Recycler_Adapter_Reservation;
+import com.example.hotelmanagement.database.entity.Reservation;
+import com.example.hotelmanagement.database.repository.ReservationRepository;
 
 import java.util.List;
 
@@ -25,11 +30,11 @@ public class ReservationListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewReservations);
-        new FirebaseDatabaseHelperReservation().readReservations(new FirebaseDatabaseHelperReservation.DataStatus() {
+        new ReservationRepository().readReservations(new ReservationRepository.DataStatus() {
             @Override
             public void DataIsLoaded(List<Reservation> reservations, List<String> keys) {
                 findViewById(R.id.loading_reservations).setVisibility(View.GONE);
-                new Recycler_View_Config_Reservation().setConfig(mRecyclerView, ReservationListActivity.this, reservations, keys);
+                new Recycler_Adapter_Reservation().setConfig(mRecyclerView, ReservationListActivity.this, reservations, keys);
             }
 
             @Override
