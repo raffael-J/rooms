@@ -101,6 +101,11 @@ public class NewReservationActivity extends AppCompatActivity {
                     }
 
                     @Override
+                    public void DataIsUpdated() {
+
+                    }
+
+                    @Override
                     public void DataIsDeleted() {
 
                     }

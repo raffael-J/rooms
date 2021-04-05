@@ -20,6 +20,7 @@ public class FirebaseDatabaseHelperReservation {
     public interface DataStatus {
         void DataIsLoaded(List<Reservation> reservations, List<String> keys);
         void DataIsInserted();
+        void DataIsUpdated();
         void DataIsDeleted();
     }
 
@@ -60,7 +61,17 @@ public class FirebaseDatabaseHelperReservation {
         });
     }
 
-    public void deleteReservation(String key, final FirebaseDatabaseHelper.DataStatus dataStatus) {
+
+    public void updateReservation(String key, Reservation reservation, final DataStatus dataStatus) {
+        mReferenceReservation.child(key).setValue(reservation).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsUpdated();
+            }
+        });
+    }
+
+    public void deleteReservation(String key, final DataStatus dataStatus) {
         mReferenceReservation.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

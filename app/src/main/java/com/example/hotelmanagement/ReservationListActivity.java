@@ -38,6 +38,11 @@ public class ReservationListActivity extends AppCompatActivity {
             }
 
             @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
             public void DataIsDeleted() {
 
             }
