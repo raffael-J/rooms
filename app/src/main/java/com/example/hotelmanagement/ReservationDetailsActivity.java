@@ -3,19 +3,23 @@ package com.example.hotelmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.internal.SignInButtonImpl;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class ReservationDetailsActivity extends AppCompatActivity {
 
+    private DatePickerDialog datePickerDialog;
     private EditText mFirstname_edittext;
     private EditText mLastname_edittext;
     private EditText mRoomname_edittext;
@@ -66,6 +70,47 @@ public class ReservationDetailsActivity extends AppCompatActivity {
         mBack_btm = (Button) findViewById((R.id.back_button_detailsReservation));
         mDelete_btm = (Button) findViewById((R.id.delete_button_detailsReservation));
         mUpdate_btn = (Button)  findViewById(R.id.update_button_detailsReservation);
+
+        mCheckin_edittext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                datePickerDialog = new DatePickerDialog(ReservationDetailsActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int day, int month, int year) {
+                        mCheckin_edittext.setText(day + "-" + month + "-" + year);
+                    }
+
+                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        mCheckout_edittext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Calendar calendar = Calendar.getInstance();
+                    int year = calendar.get(Calendar.YEAR);
+                    int month = calendar.get(Calendar.MONTH);
+                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+                    datePickerDialog = new DatePickerDialog(ReservationDetailsActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int day, int month, int year) {
+                            mCheckout_edittext.setText(day + "-" + month + "-" + year);
+                        }
+
+                    }, year, month, day);
+                    datePickerDialog.show();
+            }
+        });
+
+
+
+
+
 
         mBack_btm.setOnClickListener(new View.OnClickListener() {
 
