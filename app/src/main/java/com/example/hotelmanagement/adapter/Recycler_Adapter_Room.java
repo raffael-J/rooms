@@ -22,6 +22,8 @@ public class Recycler_Adapter_Room {
     private Context mContext;
     private RoomAdapter mRoomsAdapter;
 
+
+        //method for the connection between the activity and the layout
         public void setConfig(RecyclerView recyclerView, Context context, List<Room> rooms, List<String> keys) {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             mContext = context;
@@ -37,10 +39,13 @@ public class Recycler_Adapter_Room {
 
         private String key;
 
+        //this inner class is responsible for the layout implementation. populating with the values
         public RoomItemView(ViewGroup parent) {
+            //give it the implemented layout
             super(LayoutInflater.from(mContext).
                     inflate(R.layout.room_list_item, parent, false));
 
+            //initialized the TextViews from the implemented layout
             mName = (TextView) itemView.findViewById(R.id.firstname_textView);
             mType = (TextView) itemView.findViewById(R.id.lastname_textView);
             mAmount = (TextView) itemView.findViewById(R.id.roomname_textView);
@@ -48,6 +53,7 @@ public class Recycler_Adapter_Room {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //pass the objectvalues
                     Intent intent = new Intent(mContext, RoomDetailsActivity.class);
                     intent.putExtra("key",key);
                     intent.putExtra("type",mType.getText().toString());
@@ -62,6 +68,7 @@ public class Recycler_Adapter_Room {
 
         }
 
+        //will receive the objectvalues and the keys and populating the textviews
         public void bind(Room room, String key) {
             mType.setText(room.getType());
             mName.setText(room.getName());
@@ -70,7 +77,7 @@ public class Recycler_Adapter_Room {
         }
 
     }
-
+    //this class is responsible for creating itemView and passing object and key to bind method
     class RoomAdapter extends  RecyclerView.Adapter<RoomItemView>{
         private List<Room> mRoomList;
         private List<String> mKeys;

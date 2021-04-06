@@ -42,11 +42,13 @@ public class RoomDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // get the data from the intent object
         key = getIntent().getStringExtra("key");
         type = getIntent().getStringExtra("type");
         name = getIntent().getStringExtra("name");
         amount = getIntent().getStringExtra("amount");
 
+        //initialized the edittext
         mName_editText = (EditText) findViewById(R.id.name_editText);
         mName_editText.setText(name);
         mType_editText = (EditText) findViewById(R.id.type_editText);
@@ -80,6 +82,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsUpdated() {
+                        // toastmessage to inform the user about the successfully updated
                         Toast.makeText(RoomDetailsActivity.this,"Room is been updated succesfully",Toast.LENGTH_LONG).show();
                     }
 
@@ -112,6 +115,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsDeleted() {
+                        // toastmessage to inform the user about the successfully delete
                         Toast.makeText(RoomDetailsActivity.this, "Room has been deleted succesfully", Toast.LENGTH_LONG).show();
                         finish(); return;
                     }

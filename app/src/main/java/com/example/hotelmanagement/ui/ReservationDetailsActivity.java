@@ -50,6 +50,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // get the data from the intent object
         key = getIntent().getStringExtra("key");
         firstname = getIntent().getStringExtra("firstname");
         lastname = getIntent().getStringExtra("lastname");
@@ -57,6 +58,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
         checkIn = getIntent().getStringExtra("checkIn");
         checkOut = getIntent().getStringExtra("checkOut");
 
+        //initialized the edittext
         mFirstname_edittext = (EditText) findViewById(R.id.firstname_details_edittext);
         mFirstname_edittext.setText(firstname);
         mLastname_edittext = (EditText) findViewById(R.id.name_details_edittext);
@@ -145,6 +147,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsUpdated() {
+                        // toastmessage to inform the user about the successfully updated
                         Toast.makeText(ReservationDetailsActivity.this,"Reservation is been updated succesfully",Toast.LENGTH_LONG).show();
                     }
 
@@ -177,6 +180,7 @@ public class ReservationDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsDeleted() {
+                        // toastmessage to inform the user about the successfully delete
                         Toast.makeText(ReservationDetailsActivity.this, "Reservation has been deleted succesfully", Toast.LENGTH_LONG).show();
                         finish(); return;
                     }

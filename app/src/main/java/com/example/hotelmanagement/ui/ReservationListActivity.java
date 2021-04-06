@@ -29,6 +29,7 @@ public class ReservationListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //initialized the TextViews from the implemented layout
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewReservations);
         new ReservationRepository().readReservations(new ReservationRepository.DataStatus() {
             @Override
@@ -54,11 +55,13 @@ public class ReservationListActivity extends AppCompatActivity {
         });
     }
 
+    // to add a new reservation
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.reservationlist_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    //check the itemid. if the id is "new_room" than start activity. create and pass an intent object
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.new_reservation:

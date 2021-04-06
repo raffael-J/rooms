@@ -32,6 +32,7 @@ public class NewRoomActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //initialized the Edittext
         mName_editText = (EditText) findViewById(R.id.name_editText);
         mType_editText = (EditText) findViewById(R.id.type_editText);
         mAmount_editText = (EditText) findViewById(R.id.amount_editText);
@@ -43,9 +44,12 @@ public class NewRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Room room = new Room();
+                //populate from the viewobjects
                 room.setName(mName_editText.getText().toString());
                 room.setType(mType_editText.getText().toString());
                 room.setAmount(mAmount_editText.getText().toString());
+
+                //instantiate the RoomRespository
                 new RoomRepository().addRoom(room, new RoomRepository.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Room> rooms, List<String> keys) {
@@ -54,7 +58,8 @@ public class NewRoomActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsInserted() {
-                        Toast.makeText(NewRoomActivity.this, "The room is inserted succesfully", Toast.LENGTH_LONG).show();
+                        // toastmessage to inform the user about the successfully insert
+                        Toast.makeText(NewRoomActivity.this, "The room is inserted successfully", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
@@ -69,6 +74,8 @@ public class NewRoomActivity extends AppCompatActivity {
                 });
             }
         });
+
+        //set onclicklistener on backbutton
         mBack_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -22,15 +22,20 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        // Toolbar with the arrow with the back function
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        // with boolean dark mode "on" and "off"
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         modeOn = prefs.getBoolean("dark", false);
         switchSettings = (Switch) findViewById(R.id.darkmode);
         switchSettings.setChecked(modeOn);
         switchSettings.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            //isChecked true -> darkmode, isChecked false -> darkmode is off
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {

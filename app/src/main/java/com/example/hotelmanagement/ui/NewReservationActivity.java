@@ -39,6 +39,7 @@ public class NewReservationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //initialized the Edittext
         mFirstname_editText = (EditText) findViewById(R.id.firstname_editText);
         mLastname_editText = (EditText) findViewById(R.id.lastname_editText);
         mRoomname_editText = (EditText) findViewById(R.id.roomname_editText);
@@ -48,6 +49,8 @@ public class NewReservationActivity extends AppCompatActivity {
         mAdd_btm = (Button) findViewById(R.id.add_button_reservations);
         mBack_btm = (Button) findViewById(R.id.back_button_reservationsAdd);
 
+
+        // DatepickerDialog for the CheckIn
         mCheckin_editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +69,8 @@ public class NewReservationActivity extends AppCompatActivity {
             }
         });
 
+
+        // DatepickerDialog for the Checkout EditText
         mCheckout_editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +106,8 @@ public class NewReservationActivity extends AppCompatActivity {
 
                     @Override
                     public void DataIsInserted() {
-                        Toast.makeText(NewReservationActivity.this, "The Reservation is inserted succesfully", Toast.LENGTH_LONG).show();
+                        // toastmessage to inform the user about the successfully insert
+                        Toast.makeText(NewReservationActivity.this, "The Reservation is inserted successfully", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
@@ -116,7 +122,7 @@ public class NewReservationActivity extends AppCompatActivity {
                 });
             }
         });
-
+        //set onclicklistener on backbutton
         mBack_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

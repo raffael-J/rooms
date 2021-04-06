@@ -21,7 +21,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button button1;
     private Button button2;
     private TextView more;
-    //Menu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

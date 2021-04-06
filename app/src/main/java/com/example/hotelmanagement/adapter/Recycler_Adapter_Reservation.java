@@ -21,6 +21,7 @@ public class Recycler_Adapter_Reservation {
     private Context mContext;
     private ReservationAdapter mReservationAdapter;
 
+    //method for the connection between the activity and the layout
     public void setConfig(RecyclerView recyclerView, Context context, List<Reservation> reservations, List<String> keys) {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         mContext = context;
@@ -37,8 +38,12 @@ public class Recycler_Adapter_Reservation {
 
         private String key;
 
+
+        //this inner class is responsible for the layout implementation. populating with the values
         public ReservationItemView(ViewGroup parent) {
             super(LayoutInflater.from(mContext).inflate(R.layout.reservation_list_item,parent, false));
+
+            //initialized the TextViews from the implemented layout
 
             mFirstname = (TextView) itemView.findViewById(R.id.firstname_textView);
             mLastname = (TextView) itemView.findViewById(R.id.lastname_textView);
@@ -49,6 +54,7 @@ public class Recycler_Adapter_Reservation {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //pass the objectvalues
                     Intent intent = new Intent(mContext, ReservationDetailsActivity.class);
                     intent.putExtra("key",key);
                     intent.putExtra("firstname",mFirstname.getText().toString());
@@ -63,6 +69,7 @@ public class Recycler_Adapter_Reservation {
 
             }
 
+        //will receive the objectvalues and the keys and populating the textviews
             public void bind(Reservation reservation, String key) {
                 mFirstname.setText(reservation.getFirstname());
                 mLastname.setText(reservation.getLastname());
@@ -74,6 +81,7 @@ public class Recycler_Adapter_Reservation {
         }
     }
 
+    //this class is responsible for creating itemView and passing object and key to bind method
     class ReservationAdapter extends RecyclerView.Adapter<ReservationItemView> {
         private List<Reservation> mReservationList;
         private List<String> mKeys;

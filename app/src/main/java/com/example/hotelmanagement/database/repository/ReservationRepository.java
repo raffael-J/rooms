@@ -18,6 +18,7 @@ public class ReservationRepository {
     private DatabaseReference mReferenceReservation;
     private List<Reservation> reservations = new ArrayList<>();
 
+    //different methods that are made avaible for the Reservation Respository
     public interface DataStatus {
         void DataIsLoaded(List<Reservation> reservations, List<String> keys);
         void DataIsInserted();
@@ -25,20 +26,28 @@ public class ReservationRepository {
         void DataIsDeleted();
     }
 
-
+    //Constructor
+    //initialize database object
     public ReservationRepository() {
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceReservation = mDatabase.getReference("Reservation");
     }
 
+    //everytime you update, delete or insert data, will execute the onDataChange Method
+
     public void readReservations(final DataStatus dataStatus) {
         mReferenceReservation.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clear the list of reservations from old data
                 reservations.clear();
+                //store the reservation of the reservation node
                 List<String> key = new ArrayList<>();
+                //this object will contain the key and value of specific node
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                    //get the key and save it in the list
                     key.add(keyNode.getKey());
+                    //hand over the values
                     Reservation reservation = keyNode.getValue(Reservation.class);
                     reservations.add(reservation);
                 }
@@ -53,6 +62,7 @@ public class ReservationRepository {
     }
 
     public void addReservation(Reservation reservation, final DataStatus dataStatus) {
+        //generate new child node, unique key automatically. save the key in string
         String key = mReferenceReservation.push().getKey();
         mReferenceReservation.child(key).setValue(reservation).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
