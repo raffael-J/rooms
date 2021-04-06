@@ -61,7 +61,7 @@ public class ReservationListActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //check the itemid. if the id is "new_room" than start activity. create and pass an intent object
+    //check the itemid. if the id is "new_reservation" than start activity. create and pass an intent object
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.new_reservation:
