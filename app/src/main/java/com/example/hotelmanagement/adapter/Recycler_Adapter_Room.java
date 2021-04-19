@@ -30,6 +30,8 @@ public class Recycler_Adapter_Room {
 
         //method for the connection between the activity and the layout
         public void setConfig(RecyclerView recyclerView, Context context, List<Room> rooms, List<String> keys) {
+            mAuth = FirebaseAuth.getInstance();
+            user = mAuth.getCurrentUser();
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             mContext = context;
             mRoomsAdapter = new RoomAdapter(rooms, keys);
