@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hotelmanagement">
-        <activity android:name=".ui.SettingsActivity"
-            android:parentActivityName=".ui.MenuActivity"/>
-        <activity android:name=".ui.NewReservationActivity"
+        <activity android:name=".ui.SignInActivity"></activity>
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:parentActivityName=".ui.MenuActivity" />
+        <activity
+            android:name=".ui.NewReservationActivity"
             android:parentActivityName=".ui.ReservationListActivity" />
-        <activity android:name=".ui.ReservationDetailsActivity"
+        <activity
+            android:name=".ui.ReservationDetailsActivity"
             android:parentActivityName=".ui.ReservationListActivity" />
         <activity android:name=".ui.MenuActivity">
             <intent-filter>
@@ -25,11 +29,14 @@
         <activity
             android:name=".ui.ReservationListActivity"
             android:parentActivityName=".ui.MenuActivity" />
-        <activity android:name=".ui.RoomDetailsActivity"
-            android:parentActivityName=".ui.RoomListActivity"/>
-        <activity android:name=".ui.NewRoomActivity"
+        <activity
+            android:name=".ui.RoomDetailsActivity"
             android:parentActivityName=".ui.RoomListActivity" />
-        <activity android:name=".ui.RoomListActivity"
+        <activity
+            android:name=".ui.NewRoomActivity"
+            android:parentActivityName=".ui.RoomListActivity" />
+        <activity
+            android:name=".ui.RoomListActivity"
             android:parentActivityName=".ui.MenuActivity" />
     </application>
 
