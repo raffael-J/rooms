@@ -81,6 +81,8 @@ public class Recycler_Adapter_Reservation {
     class ReservationAdapter extends RecyclerView.Adapter<ReservationItemView> {
         private List<Reservation> mReservationList;
         private List<String> mKeys;
+
+
         public ReservationAdapter(List<Reservation> mReservationList, List<String> mKeys) {
             this.mReservationList = mReservationList;
             this.mKeys = mKeys;

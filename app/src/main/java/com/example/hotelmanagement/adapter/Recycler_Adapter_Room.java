@@ -15,10 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.ui.RoomDetailsActivity;
 import com.example.hotelmanagement.database.entity.Room;
+import com.example.hotelmanagement.ui.SignInActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
 public class Recycler_Adapter_Room {
+    FirebaseAuth mAuth;
+    private static FirebaseUser user;
     private Context mContext;
     private RoomAdapter mRoomsAdapter;
 
@@ -36,7 +41,6 @@ public class Recycler_Adapter_Room {
         private TextView mType;
         private TextView mName;
         private TextView mAmount;
-
         private String key;
 
         //this inner class is responsible for the layout implementation. populating with the values
@@ -53,14 +57,18 @@ public class Recycler_Adapter_Room {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //pass the objectvalues
-                    Intent intent = new Intent(mContext, RoomDetailsActivity.class);
-                    intent.putExtra("key",key);
-                    intent.putExtra("type",mType.getText().toString());
-                    intent.putExtra("name",mName.getText().toString());
-                    intent.putExtra("amount",mAmount.getText().toString());
+                    if (user != null) {
+                        //pass the objectvalues
+                        Intent intent = new Intent(mContext, RoomDetailsActivity.class);
+                        intent.putExtra("key", key);
+                        intent.putExtra("type", mType.getText().toString());
+                        intent.putExtra("name", mName.getText().toString());
+                        intent.putExtra("amount", mAmount.getText().toString());
 
-                    mContext.startActivity(intent);
+                        mContext.startActivity(intent);
+                    } else {
+                        mContext.startActivity(new Intent(mContext, SignInActivity.class));
+                    }
                 }
 
 
@@ -103,5 +111,6 @@ public class Recycler_Adapter_Room {
             return mRoomList.size();
         }
     }
+    public static void logout() {user = null;}
 
 }

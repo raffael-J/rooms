@@ -5,4 +5,10 @@
     <item
         android:id="@+id/new_room"
         android:title="New Room" />
+    <item
+        android:id="@+id/sign_in_room"
+        android:title="Register / Login" />
+    <item
+        android:id="@+id/sign_out_room"
+        android:title="Logout" />
 </menu>
