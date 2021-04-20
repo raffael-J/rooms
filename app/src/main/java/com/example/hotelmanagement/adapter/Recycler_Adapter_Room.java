@@ -26,7 +26,7 @@ public class Recycler_Adapter_Room {
     private static FirebaseUser user;
     private Context mContext;
     private RoomAdapter mRoomsAdapter;
-
+    //1
 
         //method for the connection between the activity and the layout
         public void setConfig(RecyclerView recyclerView, Context context, List<Room> rooms, List<String> keys) {
