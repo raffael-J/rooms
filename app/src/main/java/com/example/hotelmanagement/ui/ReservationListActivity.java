@@ -47,7 +47,7 @@ public class ReservationListActivity extends AppCompatActivity {
     }
     // to add a new reservation
     public boolean onCreateOptionsMenu(Menu menu) {
-        //return the current authenticated user
+        //on creating the menu, return the current authenticated user from the authentication object
         FirebaseUser user = mAuth.getCurrentUser();
         getMenuInflater().inflate(R.menu.reservationlist_activity_menu, menu);
         if (user != null) {
