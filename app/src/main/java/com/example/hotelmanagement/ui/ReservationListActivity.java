@@ -24,6 +24,7 @@ public class ReservationListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         //initialized the TextViews from the implemented layout
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewReservations);
@@ -46,9 +47,11 @@ public class ReservationListActivity extends AppCompatActivity {
     }
     // to add a new reservation
     public boolean onCreateOptionsMenu(Menu menu) {
+        //return the current authenticated user
         FirebaseUser user = mAuth.getCurrentUser();
         getMenuInflater().inflate(R.menu.reservationlist_activity_menu, menu);
         if (user != null) {
+            //means user is authenticated
             menu.getItem(0).setVisible(true); // new reservation
             menu.getItem(1).setVisible(false); // sign in / register
             menu.getItem(2).setVisible(true); // logout
@@ -84,7 +87,7 @@ public class ReservationListActivity extends AppCompatActivity {
                 return true;
             case R.id.sign_out_reservation:
                 mAuth.signOut();
-                invalidateOptionsMenu();
+                invalidateOptionsMenu(); //reload menu after sign out
                 Recycler_Adapter_Reservation.logout();
                 return true;
         }

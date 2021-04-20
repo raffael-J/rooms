@@ -50,6 +50,7 @@ public class Recycler_Adapter_Reservation {
                 @Override
                 public void onClick(View v) {
                     if (user != null) {
+                        //means user is authenticated
                         //pass the objectvalues
                         Intent intent = new Intent(mContext, ReservationDetailsActivity.class);
                         intent.putExtra("key",key);
@@ -101,6 +102,8 @@ public class Recycler_Adapter_Reservation {
             return mReservationList.size();
         }
     }
+
+    //set the user object to null
     public static void logout () {
         user = null;
     }
