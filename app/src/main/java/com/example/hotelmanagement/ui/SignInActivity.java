@@ -18,10 +18,13 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignInActivity extends AppCompatActivity {
     private EditText mEmail_editText;
     private EditText mPassword_editText;
+
     private Button mSignIn_btm;
     private Button mRegister_btm;
     private Button mBack_btm;
+
     private ProgressBar mProgress_bar;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,6 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         mSignIn_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               // If one of the edit texts is empty, stop the execution.
                 if (isEmpty()) return;
                 inProgress(true);
                 mAuth.signInWithEmailAndPassword(mEmail_editText.getText().toString(),
@@ -102,6 +106,8 @@ public class SignInActivity extends AppCompatActivity {
             mRegister_btm.setEnabled(true);
         }
     }
+
+    //check if the edit text is empty
     private boolean isEmpty() {
         if (TextUtils.isEmpty(mEmail_editText.getText().toString())) {
             mEmail_editText.setError("REQUIRED!");
