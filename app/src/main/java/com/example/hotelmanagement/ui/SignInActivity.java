@@ -41,7 +41,9 @@ public class SignInActivity extends AppCompatActivity {
         mSignIn_btm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // If one of the edit texts is empty, stop the execution.
+               /* If one of the edit texts is empty, stop the execution. else call inProgress method and pass it true
+                value to discipline process bar and to disable all buttons
+                */
                 if (isEmpty()) return;
                 inProgress(true);
                 mAuth.signInWithEmailAndPassword(mEmail_editText.getText().toString(),
@@ -51,6 +53,7 @@ public class SignInActivity extends AppCompatActivity {
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(SignInActivity.this, "User signned in", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(SignInActivity.this, MenuActivity.class );
+                                // set flag on the intent object to clear all activities in the current back stack
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 finish(); return;
@@ -93,6 +96,9 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
+
+    //if the user click on sign in or register one we need to discipline progressbar
+    // and disable all buttons. for this we need this helper method
     private void inProgress(boolean x) {
         if (x) {
             mProgress_bar.setVisibility(View.VISIBLE);

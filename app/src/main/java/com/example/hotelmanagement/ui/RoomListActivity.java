@@ -59,6 +59,7 @@ public class RoomListActivity extends AppCompatActivity {
 
     // to add a new room
     public boolean onCreateOptionsMenu(Menu menu) {
+        //on creating the menu, return the current authenticated user from the authentication object
         FirebaseUser user = mAuth.getCurrentUser();
         getMenuInflater().inflate(R.menu.roomlist_activity_menu, menu);
         if (user != null) {
